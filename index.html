@@ -794,11 +794,16 @@
   });
 
   /* ── VISITOR COUNTER ── */
-  const key = 'zarif_portfolio_visits';
-  const count = parseInt(localStorage.getItem(key) || '0') + 1;
-  localStorage.setItem(key, count);
-  document.getElementById('visitor-count').textContent =
-    count.toLocaleString() + (count === 1 ? ' visit' : ' visits');
+  fetch('https://api.counterapi.dev/v1/zarif029-portfolio/visits/up')
+    .then(res => res.json())
+    .then(data => {
+      const count = data.count || 0;
+      document.getElementById('visitor-count').textContent =
+        count.toLocaleString() + (count === 1 ? ' visit' : ' visits');
+    })
+    .catch(() => {
+      document.getElementById('visitor-count').textContent = '— visits';
+    });
 
   /* ── SCROLL ANIMATIONS ── */
   const observer = new IntersectionObserver((entries) => {
