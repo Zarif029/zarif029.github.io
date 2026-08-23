@@ -4,6 +4,28 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Zarif Rahman Z — Developer Portfolio</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<link rel="mask-icon" href="favicon.svg" color="#d4a853" />
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://zarif029.github.io/" />
+<meta property="og:title" content="Zarif Rahman Z — Developer, Reverse Engineer, CTF Player" />
+<meta property="og:description" content="2nd year B.Tech CSE (Cyber Security) at SRMIST. Java, C++, ML, Ghidra, and CTF challenges. Building things & breaking things." />
+<meta property="og:image" content="https://zarif029.github.io/favicon.svg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Zarif Rahman Z — Developer Portfolio" />
+<meta name="twitter:description" content="2nd year B.Tech CSE (Cyber Security) at SRMIST. Java, C++, ML, Ghidra, and CTF challenges." />
+
+<meta name="description" content="Zarif Rahman Z — B.Tech CSE (Cyber Security) student at SRMIST. Developer, reverse engineer, CTF player. View projects in Java, C++, Python/ML, and security research." />
+
+<!-- GoatCounter: privacy-friendly analytics, IP-unique by day -->
+<script data-goatcounter="https://zarifr.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -155,7 +177,7 @@
   }
   h1 {
     font-family: 'Fraunces', serif;
-    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-size: clamp(2.5rem, 8vw, 7rem);
     font-weight: 700;
     line-height: 1.0;
     letter-spacing: -0.02em;
@@ -186,6 +208,34 @@
   }
   .learning-badge strong { color: var(--accent2); font-weight: 500; }
   .learning-icon { font-size: 0.9rem; }
+
+  .visitor-greeting {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 1.25rem 0 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .visitor-greeting:empty { display: none; }
+  .visitor-greeting::before {
+    content: '👋';
+    font-size: 0.9rem;
+  }
+  .visitor-greeting .greet-number {
+    color: var(--accent2);
+    font-weight: 600;
+  }
+  .visitor-greeting.warm {
+    border-color: var(--accent2);
+    color: var(--text);
+  }
 
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn {
@@ -415,18 +465,187 @@
   .delay-4 { animation-delay: 0.55s; }
   .delay-5 { animation-delay: 0.7s; }
 
-  /* ── RESPONSIVE ── */
+  /* ── NOW SECTION ── */
+  .now-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 1.5rem;
+  }
+  .now-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .now-pulse {
+    width: 10px; height: 10px;
+    background: var(--accent2);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 var(--accent2);
+    animation: now-pulse 2s ease-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes now-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(91, 191, 170, 0.5); }
+    70%  { box-shadow: 0 0 0 12px rgba(91, 191, 170, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(91, 191, 170, 0); }
+  }
+  .now-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--accent2);
+    margin: 0;
+    font-weight: 500;
+  }
+  .now-updated {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .now-intro {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+  }
+  .now-intro a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 3px;
+  }
+  .now-intro a:hover { text-decoration-color: var(--accent); }
+
+  .now-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .now-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    border-radius: 8px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .now-card:hover {
+    border-color: var(--accent2);
+    transform: translateY(-2px);
+  }
+  .now-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+  .now-card p {
+    color: var(--text);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .now-foot {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border);
+  }
+  .now-foot code {
+    background: var(--bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    color: var(--accent2);
+  }
   @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1rem; }
-    .nav-links li:nth-child(n+3) { display: none; }
-    section { padding: 5rem 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .project-card { grid-template-columns: 1fr; }
-    .project-meta { align-items: flex-start; }
-    .edu-card { grid-template-columns: 1fr; }
+    .now-updated { margin-left: 0; }
+  }
+
+  /* ── RESPONSIVE ── */
+  /* ── RESPONSIVE ── */
+
+  /* Hamburger hidden on desktop */
+  .nav-hamburger { display: none; }
+
+  /* Tablet & below */
+  @media (max-width: 1024px) {
+    .about-grid { gap: 3rem; }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 1.25rem;
+    }
+    .nav-links.open { max-height: 500px; padding: 1rem 1.25rem 1.5rem; }
+    .nav-links li { width: 100%; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+    .nav-links li:last-child { border-bottom: none; }
+    .nav-links li:nth-child(n+3) { display: block; }
+    .nav-links .visitor-badge,
+    .nav-links .theme-toggle-wrap { display: none; }
+
+    section { padding: 4rem 1.25rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-stats { padding-top: 0; }
+    .project-card { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem; }
+    .project-meta { align-items: flex-start; flex-direction: row; flex-wrap: wrap; gap: 0.5rem; }
+    .edu-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
     .edu-year { text-align: left; }
-    footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; text-align: center; }
+    footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem 1.25rem; text-align: center; }
+  }
+
+  /* Desktop nav (override mobile) */
+  @media (min-width: 769px) {
+    .nav-links {
+      flex-direction: row;
+      position: static;
+      max-height: none;
+      overflow: visible;
+      padding: 0;
+      background: transparent;
+      border-bottom: none;
+    }
+    .nav-links li { width: auto; padding: 0; border-bottom: none; }
   }
 </style>
 </head>
@@ -435,8 +654,12 @@
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">zarif.dev</a>
-  <ul class="nav-links">
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
+    <li><a href="#now">/now</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -469,11 +692,45 @@
       <span class="learning-icon">⚡</span>
       Currently learning: <strong>C Systems Programming · Advanced Java · Linux Internals</strong>
     </div>
+    <p class="visitor-greeting fade-up delay-5" id="visitorGreeting" aria-live="polite"></p>
     <div class="hero-cta fade-up delay-5">
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="https://github.com/Zarif029" target="_blank" class="btn btn-outline">GitHub →</a>
       <a href="https://www.linkedin.com/in/zarif-rahman-557a593b2/" target="_blank" class="btn btn-outline">LinkedIn →</a>
     </div>
+  </div>
+</section>
+
+<!-- NOW -->
+<section id="now" class="now-section">
+  <div class="container">
+    <div class="now-header">
+      <span class="now-pulse"></span>
+      <h2 class="now-title">/now</h2>
+      <span class="now-updated">updated <time datetime="2026-08">Aug 2026</time></span>
+    </div>
+    <p class="now-intro">A snapshot of what I'm focused on right now. Inspired by <a href="https://nownownow.com/about" target="_blank" rel="noopener">nownownow.com</a>.</p>
+
+    <div class="now-grid">
+      <div class="now-card">
+        <span class="now-label">🔨 Building</span>
+        <p>Polishing Ghidra scripts for automated vtable detection in stripped Windows PEs. Slowly turning one-off CTF tooling into a reusable toolkit.</p>
+      </div>
+      <div class="now-card">
+        <span class="now-label">📚 Learning</span>
+        <p>C systems programming (deep dives into memory layout, stack frames, ELF internals) + Advanced Java (generics, concurrency, JVM internals). Linux kernel module basics on the side.</p>
+      </div>
+      <div class="now-card">
+        <span class="now-label">🎯 Next</span>
+        <p>Cracking harder HTB reversing boxes. Pwn.college modules. Maybe a small Rust project if the semester lets me breathe.</p>
+      </div>
+      <div class="now-card">
+        <span class="now-label">📍 Life</span>
+        <p>2nd year, SRMIST Chennai. Balancing coursework, CTFs, and figuring out what's next after graduation. Open to summer 2027 internships.</p>
+      </div>
+    </div>
+
+    <p class="now-foot">Last commit: <code>chore: document ret2win research</code> · Currently reading: <em>The Shellcoder's Handbook</em></p>
   </div>
 </section>
 
@@ -794,6 +1051,22 @@
 </footer>
 
 <script>
+  /* ── MOBILE NAV ── */
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+
   /* ── THEME TOGGLE ── */
   const toggleBtn = document.getElementById('themeToggle');
   const html = document.documentElement;
@@ -809,17 +1082,57 @@
     localStorage.setItem('theme', next);
   });
 
-  /* ── VISITOR COUNTER ── */
-  fetch('https://api.counterapi.dev/v1/zarif029-portfolio/visits/up')
-    .then(res => res.json())
-    .then(data => {
-      const count = data.count || 0;
-      document.getElementById('visitor-count').textContent =
-        count.toLocaleString() + (count === 1 ? ' visit' : ' visits');
-    })
-    .catch(() => {
-      document.getElementById('visitor-count').textContent = '— visits';
-    });
+  /* ── VISITOR COUNTER (IP-unique via GoatCounter) ── */
+  // GoatCounter dedupes by IP per day. Free, privacy-friendly, no cookies.
+  // Counter endpoint: https://zarifr.goatcounter.com/count
+  (function () {
+    const badge = document.getElementById('visitor-count');
+    const greeting = document.getElementById('visitorGreeting');
+    if (!badge) return;
+
+    const formatCount = (n) => n.toLocaleString() + (n === 1 ? ' visit' : ' visits');
+
+    // While the official script loads, show a placeholder so the UI is never broken
+    badge.textContent = '— visits';
+
+    // Time-of-day greeting
+    const hour = new Date().getHours();
+    const tod = hour < 5  ? 'Hey night owl'
+              : hour < 12 ? 'Good morning'
+              : hour < 17 ? 'Good afternoon'
+              : hour < 22 ? 'Good evening'
+              :             'Hey night owl';
+
+    // Returning visitor detection (localStorage — same browser)
+    const RETURN_KEY = 'zarif_returning_visitor';
+    const isReturning = !!localStorage.getItem(RETURN_KEY);
+    localStorage.setItem(RETURN_KEY, '1');
+
+    // Pull the real IP-unique total from GoatCounter's JSON API
+    fetch('https://zarifr.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!data || typeof data.count !== 'number') return;
+        const n = data.count;
+        badge.textContent = formatCount(n) + ' · unique';
+
+        // Populate the personal greeting
+        if (greeting) {
+          let msg;
+          if (n === 1) {
+            msg = `${tod} — you're the very first visitor. Welcome!`;
+          } else if (isReturning) {
+            msg = `${tod} — welcome back! You're visitor <span class="greet-number">#${n.toLocaleString()}</span>.`;
+          } else {
+            msg = `${tod} — you're visitor <span class="greet-number">#${n.toLocaleString()}</span>. Glad you stopped by.`;
+          }
+          greeting.innerHTML = msg;
+          // Subtle highlight after a moment
+          setTimeout(() => greeting.classList.add('warm'), 600);
+        }
+      })
+      .catch(() => { badge.textContent = '— visits'; });
+  })();
 
   /* ── SCROLL ANIMATIONS ── */
   const observer = new IntersectionObserver((entries) => {
