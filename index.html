@@ -1095,15 +1095,22 @@
     const VISIT_KEY  = 'zarif_visit_count';
     const FIRST_KEY  = 'zarif_first_visit';
     const RETURN_KEY = 'zarif_returning_visitor';
+    const SESSION_KEY = 'zarif_session_counted';
+
+    // Already counted this session? Skip increment, just show the saved value.
+    const alreadyCounted = sessionStorage.getItem(SESSION_KEY);
 
     let count = parseInt(localStorage.getItem(VISIT_KEY) || '0', 10);
     const isFirstEver = !localStorage.getItem(FIRST_KEY);
     const isReturning = !!localStorage.getItem(RETURN_KEY);
 
-    count += 1;
-    localStorage.setItem(VISIT_KEY, String(count));
-    localStorage.setItem(FIRST_KEY, '1');
-    localStorage.setItem(RETURN_KEY, '1');
+    if (!alreadyCounted) {
+      count += 1;
+      localStorage.setItem(VISIT_KEY, String(count));
+      localStorage.setItem(FIRST_KEY, '1');
+      localStorage.setItem(RETURN_KEY, '1');
+      sessionStorage.setItem(SESSION_KEY, '1');
+    }
 
     const formatCount = (n) => n.toLocaleString() + (n === 1 ? ' visit' : ' visits');
     badge.textContent = formatCount(count);
