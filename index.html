@@ -1125,11 +1125,11 @@
 
       let msg;
       if (isFirstEver) {
-        msg = `${tod} — you're the very first visitor. Welcome!`;
+        msg = `${tod} — welcome!`;
       } else if (isReturning) {
-        msg = `${tod} — welcome back! You're visitor <span class="greet-number">#${count.toLocaleString()}</span> (this browser).`;
+        msg = `${tod} — welcome back!`;
       } else {
-        msg = `${tod} — you're visitor <span class="greet-number">#${count.toLocaleString()}</span> (this browser). Glad you stopped by.`;
+        msg = `${tod} — welcome!`;
       }
       greeting.innerHTML = msg;
       setTimeout(() => greeting.classList.add('warm'), 600);
