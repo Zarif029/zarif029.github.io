@@ -1082,56 +1082,51 @@
     localStorage.setItem('theme', next);
   });
 
-  /* ── VISITOR COUNTER (IP-unique via GoatCounter) ── */
-  // GoatCounter dedupes by IP per day. Free, privacy-friendly, no cookies.
-  // Counter endpoint: https://zarifr.goatcounter.com/count
+  /* ── VISITOR COUNTER ──
+     The GoatCounter script in <head> handles real IP-unique analytics
+     (see your dashboard at zarifr.goatcounter.com).
+     The on-page badge uses localStorage to count unique visits per browser,
+     so it always works without depending on a public API endpoint. */
   (function () {
     const badge = document.getElementById('visitor-count');
     const greeting = document.getElementById('visitorGreeting');
     if (!badge) return;
 
-    const formatCount = (n) => n.toLocaleString() + (n === 1 ? ' visit' : ' visits');
-
-    // While the official script loads, show a placeholder so the UI is never broken
-    badge.textContent = '— visits';
-
-    // Time-of-day greeting
-    const hour = new Date().getHours();
-    const tod = hour < 5  ? 'Hey night owl'
-              : hour < 12 ? 'Good morning'
-              : hour < 17 ? 'Good afternoon'
-              : hour < 22 ? 'Good evening'
-              :             'Hey night owl';
-
-    // Returning visitor detection (localStorage — same browser)
+    const VISIT_KEY  = 'zarif_visit_count';
+    const FIRST_KEY  = 'zarif_first_visit';
     const RETURN_KEY = 'zarif_returning_visitor';
+
+    let count = parseInt(localStorage.getItem(VISIT_KEY) || '0', 10);
+    const isFirstEver = !localStorage.getItem(FIRST_KEY);
     const isReturning = !!localStorage.getItem(RETURN_KEY);
+
+    count += 1;
+    localStorage.setItem(VISIT_KEY, String(count));
+    localStorage.setItem(FIRST_KEY, '1');
     localStorage.setItem(RETURN_KEY, '1');
 
-    // Pull the real IP-unique total from GoatCounter's JSON API
-    fetch('https://zarifr.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
-      .then(r => r.ok ? r.json() : null)
-      .then(data => {
-        if (!data || typeof data.count !== 'number') return;
-        const n = data.count;
-        badge.textContent = formatCount(n) + ' · unique';
+    const formatCount = (n) => n.toLocaleString() + (n === 1 ? ' visit' : ' visits');
+    badge.textContent = formatCount(count);
 
-        // Populate the personal greeting
-        if (greeting) {
-          let msg;
-          if (n === 1) {
-            msg = `${tod} — you're the very first visitor. Welcome!`;
-          } else if (isReturning) {
-            msg = `${tod} — welcome back! You're visitor <span class="greet-number">#${n.toLocaleString()}</span>.`;
-          } else {
-            msg = `${tod} — you're visitor <span class="greet-number">#${n.toLocaleString()}</span>. Glad you stopped by.`;
-          }
-          greeting.innerHTML = msg;
-          // Subtle highlight after a moment
-          setTimeout(() => greeting.classList.add('warm'), 600);
-        }
-      })
-      .catch(() => { badge.textContent = '— visits'; });
+    if (greeting) {
+      const hour = new Date().getHours();
+      const tod = hour < 5  ? 'Hey night owl'
+                : hour < 12 ? 'Good morning'
+                : hour < 17 ? 'Good afternoon'
+                : hour < 22 ? 'Good evening'
+                :             'Hey night owl';
+
+      let msg;
+      if (isFirstEver) {
+        msg = `${tod} — you're the very first visitor. Welcome!`;
+      } else if (isReturning) {
+        msg = `${tod} — welcome back! You're visitor <span class="greet-number">#${count.toLocaleString()}</span> (this browser).`;
+      } else {
+        msg = `${tod} — you're visitor <span class="greet-number">#${count.toLocaleString()}</span> (this browser). Glad you stopped by.`;
+      }
+      greeting.innerHTML = msg;
+      setTimeout(() => greeting.classList.add('warm'), 600);
+    }
   })();
 
   /* ── SCROLL ANIMATIONS ── */
