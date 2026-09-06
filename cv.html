@@ -269,6 +269,45 @@
       .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
       .main { padding: 24px 20px 20px; }
     }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      :root {
+        --bg: #ffffff;
+        --bg2: #ffffff;
+        --bg3: #f7f7f7;
+        --panel: #ffffff;
+        --border: #d9d9d9;
+        --text: #171717;
+        --muted: #4d4d4d;
+        --accent: #8b650f;
+        --accent2: #176f61;
+        --shadow: transparent;
+      }
+      body { background: #ffffff; color: var(--text); }
+      .page {
+        max-width: none;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+        background: #ffffff;
+      }
+      .topbar { padding: 28px 38px 16px; }
+      .content { grid-template-columns: 250px 1fr; }
+      .sidebar { padding: 22px 20px 28px; }
+      .main { padding: 22px 28px 28px; }
+      .sidebar .card, .main-card, .skill-item {
+        background: #ffffff;
+        break-inside: avoid;
+      }
+      .section { margin-bottom: 18px; }
+      .main-card { padding: 13px 15px 11px; margin-bottom: 12px; }
+      .sidebar .card { margin-bottom: 14px; padding: 12px; }
+      .skill-grid { gap: 8px 12px; }
+      .skill-item { padding: 8px 10px; }
+      .cta-row { display: none; }
+      a { color: inherit; }
+    }
   </style>
 </head>
 <body>
