@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zarif Rahman Z | CV</title>
+  <meta name="description" content="CV of Zarif Rahman Z, B.Tech CSE (Cyber Security) student at SRMIST." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,300;1,700&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg2: #111111;
+      --bg3: #181818;
+      --panel: #141414;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #e9e4dc;
+      --muted: #a9a19a;
+      --accent: #d4a853;
+      --accent2: #5bbfaa;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: linear-gradient(180deg, var(--bg) 0%, #121212 100%);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: rgba(18, 18, 18, 0.9);
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px var(--shadow);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 32px 48px 20px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.01);
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.2rem, 4vw, 3.3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+
+    .title {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      color: var(--accent2);
+      margin-top: 8px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .contact a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212,168,83,0.25);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 0;
+    }
+
+    .sidebar {
+      background: rgba(255,255,255,0.015);
+      border-right: 1px solid var(--border);
+      padding: 28px 24px 32px;
+    }
+
+    .main {
+      padding: 28px 32px 32px;
+    }
+
+    .section {
+      margin-bottom: 26px;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .sidebar .card {
+      margin-bottom: 20px;
+      padding: 16px 16px 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .sidebar h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 10px;
+    }
+
+    .sidebar p, .sidebar li, .main p, .main li {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .sidebar ul, .main ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar li, .main li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .sidebar li::before, .main li::before {
+      content: '•';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .main-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      padding: 18px 18px 14px;
+      margin-bottom: 18px;
+    }
+
+    .role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .entry-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .entry-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .entry-sub {
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 18px;
+    }
+
+    .skill-item {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+    }
+
+    .skill-item strong {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      font-size: 0.7rem;
+      margin-bottom: 6px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      padding: 4px 8px;
+      border: 1px solid var(--border);
+      background: rgba(91,191,170,0.04);
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.64rem;
+      letter-spacing: 0.04em;
+      border-radius: 999px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .link-btn {
+      display: inline-block;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .link-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 860px) {
+      .page { margin: 20px 12px; }
+      .topbar { padding: 24px 22px 18px; flex-direction: column; align-items: flex-start; }
+      .contact { justify-content: flex-start; text-align: left; }
+      .content { grid-template-columns: 1fr; }
+      .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+      .main { padding: 24px 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div>
+        <h1>Zarif Rahman Z</h1>
+        <div class="title">B.Tech CSE (Cyber Security) Student</div>
+      </div>
+      <div class="contact">
+        <a href="mailto:zarifr084@gmail.com">zarifr084@gmail.com</a>
+        <span>•</span>
+        <a href="https://github.com/Zarif029" target="_blank" rel="noreferrer">github.com/Zarif029</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/zarif-rahman-557a593b2/" target="_blank" rel="noreferrer">linkedin.com/in/zarif-rahman</a>
+      </div>
+    </header>
+
+    <div class="content">
+      <aside class="sidebar">
+        <div class="card">
+          <h3>Profile</h3>
+          <p>
+            Cyber security student with a strong interest in reverse engineering, low-level systems,
+            software development, and CTF problem solving. I enjoy building, breaking, and understanding
+            software at a deeper level.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Education</h3>
+          <p><strong>SRM Institute of Science and Technology</strong></p>
+          <p>B.Tech — Computer Science & Engineering</p>
+          <p>Cyber Security Specialization</p>
+          <p>2025 — 2029</p>
+        </div>
+
+        <div class="card">
+          <h3>Core Skills</h3>
+          <ul>
+            <li>Java</li>
+            <li>C++</li>
+            <li>Python</li>
+            <li>Machine Learning</li>
+            <li>Reverse Engineering</li>
+            <li>Ghidra</li>
+            <li>Git / GitHub</li>
+            <li>Linux Basics</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Tools</h3>
+          <ul>
+            <li>VS Code</li>
+            <li>PowerShell</li>
+            <li>Kali Linux</li>
+            <li>Windows Environment</li>
+            <li>Git CLI</li>
+          </ul>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="section">
+          <div class="section-label">Summary</div>
+          <div class="main-card">
+            <p>
+              I am a second-year Computer Science student focused on cyber security, software development,
+              and reverse engineering. My work spans Java and C++ projects, ML experiments, and practical
+              CTF-style security challenges. I enjoy writing clean code while also learning how systems behave
+              under the hood.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">Education</div>
+          <div class="main-card">
+            <div class="entry-header">
+              <div class="entry-title">SRM Institute of Science and Technology</div>
+              <div class="entry-date">2025 — 2029</div>
+            </div>
+            <div class="entry-sub">B.Tech — Computer Science & Engineering (Cyber Security)</div>
+            <p>
+              Coursework includes Java programming, C++ object-oriented design, machine learning, UML modeling,
+              and data structures. Active in CTF challenges and reverse engineering assignments.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">Technical Skills</div>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <strong>Programming</strong>
+              Java, C++, Python, OOP design, data structures
+            </div>
+            <div class="skill-item">
+              <strong>Security</strong>
+              Reverse engineering, Ghidra, PE analysis, binary exploitation basics
+            </div>
+            <div class="skill-item">
+              <strong>Machine Learning</strong>
+              scikit-learn, pandas, model evaluation, RNA-Seq analysis
+            </div>
+            <div class="skill-item">
+              <strong>Tools & Workflow</strong>
+              Git, GitHub, VS Code, PowerShell, Linux, debugging workflows
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">Projects</div>
+          <div class="main-card">
+            <div class="role">Java Application</div>
+            <div class="entry-header">
+              <div class="entry-title">HelloApp</div>
+              <div class="entry-date">2025</div>
+            </div>
+            <p>
+              Built a progressive Java project covering multiple use cases involving OOP concepts, data storage,
+              and structured project workflow. Developed with a Git-based feature progression approach.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Java</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+
+          <div class="main-card">
+            <div class="role">Java Application</div>
+            <div class="entry-header">
+              <div class="entry-title">OOPSBannerApp</div>
+              <div class="entry-date">2025</div>
+            </div>
+            <p>
+              Created an advanced Java banner renderer using inner classes and HashMap-based character storage,
+              showcasing encapsulation, abstraction, and modular planning.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Java</span>
+              <span class="tag">HashMap</span>
+              <span class="tag">Inner Classes</span>
+            </div>
+          </div>
+
+          <div class="main-card">
+            <div class="role">Game / Application</div>
+            <div class="entry-header">
+              <div class="entry-title">TicTacToe</div>
+              <div class="entry-date">2025</div>
+            </div>
+            <p>
+              Implemented a turn-based game with state management, input validation, and win-condition logic,
+              demonstrating structured design and debugging discipline.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Java</span>
+              <span class="tag">Game Logic</span>
+              <span class="tag">OOP</span>
+            </div>
+          </div>
+
+          <div class="main-card">
+            <div class="role">Security Research</div>
+            <div class="entry-header">
+              <div class="entry-title">ret2win Research Lab</div>
+              <div class="entry-date">2026</div>
+            </div>
+            <p>
+              Studied the ret2win exploitation technique and documented practical methodology for hijacking control flow
+              in x86/x64 binaries, with a focus on security concepts and reverse engineering workflows.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Binary Exploitation</span>
+              <span class="tag">CTF</span>
+              <span class="tag">Security</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">Certifications & Activities</div>
+          <div class="main-card">
+            <div class="entry-header">
+              <div class="entry-title">HTB CTF — Reverse Engineering</div>
+              <div class="entry-date">2026</div>
+            </div>
+            <p>
+              Participated in reverse engineering challenge workflows involving Windows PE binaries, Ghidra decompilation,
+              COM structures, RTTI, and vtable reconstruction.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">Interests</div>
+          <div class="main-card">
+            <ul>
+              <li>Reverse engineering and malware analysis fundamentals</li>
+              <li>CTF challenges and binary exploitation</li>
+              <li>C systems programming and Linux internals</li>
+              <li>Advanced Java and JVM-level understanding</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="link-btn" href="index.html">Back to Portfolio</a>
+          <a class="link-btn" href="mailto:zarifr084@gmail.com">Email Me</a>
+          <a class="link-btn" href="https://github.com/Zarif029" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
